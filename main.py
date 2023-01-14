@@ -19,7 +19,9 @@ pygame.draw.rect(screen, yellow, (250, (sc_height - 100) // 2 + 100, border_widt
 
 # Drawing tanks
 tank1 = pygame.image.load("tank1.png")
+tank1_rect = tank1.get_rect()
 tank2 = pygame.image.load("tank2.png")
+tank2_rect = tank2.get_rect()
 
 # Font
 font = pygame.font.Font("PressStart2P.ttf", 80)
@@ -83,8 +85,8 @@ while True:
                      (480, (sc_height - 550) - border_width, border_width * 2, border_width * 2))
 
     # Updating tanks
-    screen.blit(tank1, (55, 330))
-    screen.blit(tank2, (815, 330))
+    screen.blit(tank1, tank1_position)
+    screen.blit(tank2, tank2_position)
 
     # Drawing the score
     score_format = font.render("{}".format(score_player1), False, green)
@@ -98,6 +100,10 @@ while True:
         if event.type == QUIT:
             pygame.display.quit()
             exit()
+
+    key = pygame.key.get_pressed()
+    if key[pygame.K_UP]:
+        tank1_position[0] += 1
 
     # Screen in loop
     frames.tick(200)

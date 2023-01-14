@@ -15,3 +15,7 @@ border_width = 25
 # Score
 score_player1 = 0
 score_player2 = 0
+
+# Position
+tank1_position = [55, 330]
+tank2_position = [815, 330]
