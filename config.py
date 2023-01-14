@@ -19,3 +19,6 @@ score_player2 = 0
 # Position
 tank1_position = [55, 330]
 tank2_position = [815, 330]
+
+# Angle
+angle = 0

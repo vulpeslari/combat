@@ -85,7 +85,9 @@ while True:
                      (480, (sc_height - 550) - border_width, border_width * 2, border_width * 2))
 
     # Updating tanks
-    screen.blit(tank1, tank1_position)
+    rotated_tank1 = pygame.transform.rotate(tank1, angle)
+
+    screen.blit(rotated_tank1, tank1_position)
     screen.blit(tank2, tank2_position)
 
     # Drawing the score
@@ -101,9 +103,24 @@ while True:
             pygame.display.quit()
             exit()
 
-    key = pygame.key.get_pressed()
-    if key[pygame.K_UP]:
-        tank1_position[0] += 1
+        key = pygame.key.get_pressed()
+        if key[pygame.K_w]:
+            if tank1_position[0] >= sc_width - border_width * 4:
+                tank1_position[0] = tank1_position[0]
+            else:
+                tank1_position[0] += 1
+
+        if key[pygame.K_a]:
+            angle += 1
+
+        if key[pygame.K_UP]:
+            if tank2_position[0] <= 0 - border_width * 1.5:
+                tank2_position[0] = tank2_position[0]
+            else:
+                tank2_position[0] -= 1
+
+        if key[pygame.K_LEFT]:
+            pygame.transform.flip(tank2, 100, 100)
 
     # Screen in loop
     frames.tick(200)
