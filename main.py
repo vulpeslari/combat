@@ -141,7 +141,7 @@ while True:
 
         if key[pygame.K_RIGHT]:
             angle2 -= 0.5
-            tank1.rect.x -= 0.3
+            tank2.rect.x -= 0.3
 
         if key[pygame.K_LEFT]:
             angle2 += 0.5
